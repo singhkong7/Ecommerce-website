@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+
 import {
   clearItemFromCart,
   addItem,
@@ -9,7 +10,7 @@ import {
 
 import './checkout-item.styles.scss';
 
-const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
+const CheckoutItem = ({ cartItem, clearItem, addItem,removeItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
   return (
     <div className='checkout-item'>
@@ -30,6 +31,7 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
       <div className='remove-button' onClick={() => clearItem(cartItem)}>
         &#10005;
       </div>
+      
     </div>
   );
 };
