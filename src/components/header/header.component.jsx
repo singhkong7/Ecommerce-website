@@ -15,14 +15,16 @@ import './header.styles.scss';
 
 const Header = ({ currentUser, hidden }) => {
   const [message,setMessage]=useState(null);
+  const[image,setImage]=useState(require('../../assets/render0.jpg'));
   
   useEffect(() => {
     const fetchAndAct = async () => {
       try {
       await firebase.remoteConfig().fetchAndActivate();
       const newText = firebase.remoteConfig().getValue('homescreen_message').asString();
+      const newImage =firebase.remoteConfig().getValue('header_image').asString();
       console.log(
-       "NewText>>>>>>>>>>>>>>>",newText 
+       "NewText>>>>>>>>>>>>>>>",newImage 
       );
         setMessage(newText);
       } catch (error) {
@@ -39,6 +41,7 @@ const Header = ({ currentUser, hidden }) => {
       <Logo className='logo' />
     </Link>
     <h1>{message}</h1>
+    <img src={image} alt="" className='image_header' style={{height:"auto",width:"10%"}}/>
     <div className='options'>
       <Link className='option' to='/shop'>
         SHOP
