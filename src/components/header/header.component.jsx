@@ -26,6 +26,7 @@ const Header = ({ currentUser, hidden }) => {
       console.log(
        "NewText>>>>>>>>>>>>>>>",newImage 
       );
+        setImage(newImage);
         setMessage(newText);
       } catch (error) {
         console.error('Error fetching and activating Remote Config:', error);
